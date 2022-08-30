@@ -2,11 +2,11 @@ import React from "react";
 import Navbar from "../components/navbar";
 import { useQuery } from "@apollo/client";
 
-import { GET_EPISODES } from "../graphql/rickAndMortyQuery";
+import { GET_CHARACTERS } from "../graphql/rickAndMortyQuery";
 import CharacterCard from "../components/characterCard";
 
 const Characters = () => {
-  const { loading, error, data } = useQuery(GET_EPISODES);
+  const { loading, error, data } = useQuery(GET_CHARACTERS);
   const load = loading && <p className="mt-5 pt-4">...loading </p>;
 
   return (
@@ -20,7 +20,6 @@ const Characters = () => {
             return <CharacterCard character={character} />;
           })}
       </div>
-      {/* <CharacterCard />; */}
     </div>
   );
 };

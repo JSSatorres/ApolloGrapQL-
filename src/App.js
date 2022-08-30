@@ -10,9 +10,7 @@ import Episodes from "./pages/Episodes";
 function App() {
   return (
     <Routes>
-      <Route index element={<Home />} />
-      <Route path="/" element={<Home />} />
-      <Route path="/episodes" element={<Episodes />} />
+      <Route path="/" element={<Episodes />} />
       <Route path="/characters" element={<Characters />} />
     </Routes>
   );

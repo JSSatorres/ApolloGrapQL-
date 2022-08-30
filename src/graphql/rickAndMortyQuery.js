@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-export const GET_EPISODES = gql`
+export const GET_CHARACTERS = gql`
   query charactersRickAndMorty {
     characters {
       results {

@@ -8,17 +8,6 @@ const Navbar = () => {
         <ul className="d-xl-flex navbar-nav me-auto mb-2 mb-lg-0">
           <li className="nav-item">
             <Link to="/" className="nav-link text-warning">
-              Rick and Morty
-              {/*   <img
-                src="https://www.nicepng.com/png/detail/902-9026377_freetoedit-rick-morty-rickandmorty-shadow-wallpaper-rick-and.png"
-                height="25"
-                alt="MDB Logo"
-                loading="lazy"
-              /> */}
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/episodes" className="nav-link text-warning">
               Episodes
             </Link>
           </li>
