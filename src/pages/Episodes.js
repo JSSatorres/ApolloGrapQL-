@@ -1,12 +1,14 @@
 import React from "react";
+import { useQuery } from "@apollo/client";
+
 import Navbar from "../components/navbar";
 
 const Episodes = () => {
   return (
-    <div className="bg-secondary">
+    <>
       <Navbar />
-      <div> episodes</div>
-    </div>
+      <div className="bg-secondary"> episodes</div>
+    </>
   );
 };
 

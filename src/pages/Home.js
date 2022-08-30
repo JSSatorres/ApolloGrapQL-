@@ -16,12 +16,12 @@ const Home = () => {
   }
 
   return (
-    <section className="bg-secondary">
+    <>
       <Navbar />
 
       <Input keywordSeacrh={keywordSeacrh} />
       <div className="mx-5">{/*   <GiftList keyword={keyword} /> */}</div>
-    </section>
+    </>
   );
 };
 

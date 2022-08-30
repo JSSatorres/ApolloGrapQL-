@@ -11,10 +11,7 @@ import {
   gql,
 } from "@apollo/client";
 
-const client = new ApolloClient({
-  uri: "https://rickandmortyapi.com/graphql",
-  cache: new InMemoryCache(),
-});
+import { client } from "./graphql/ApolloClient";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
