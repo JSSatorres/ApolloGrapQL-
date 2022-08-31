@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useQuery, useLazyQuery } from "@apollo/client";
+import { useLazyQuery } from "@apollo/client";
 
 import Navbar from "../components/navbar";
 import { GET_ONE_EPISODE } from "../graphql/getOneEpisode";
@@ -30,23 +30,27 @@ const Episodes = () => {
           handleChangeEpisode={handleChangeEpisode}
         />
       </div>
-      <div className="px-5 py-3">
+      <div>
         {oneEpisode === false ? (
           <h2> Select a epiosde</h2>
         ) : (
           <div>
-            <div>
+            <div className=" mt-3 px-5">
               <h2>
                 title: <span>{oneEpisode.data.episode.name}</span>
               </h2>
               <h5>episode: {oneEpisode.data.episode.episode}</h5>
               <h5>air date: {oneEpisode.data.episode.air_date}</h5>
             </div>
-            <h4 className="mt-5">Characters in the episode:</h4>
-            <div className="d-flex flex-row flex-wrap px-3">
+            <h4 className="mt-5 px-5">Characters in the episode:</h4>
+            <div className="d-flex flex-row flex-wrap px-3 ">
+              {/*  <div className="col-sm-"> */}
               {oneEpisode.data.episode.characters.map((character) => {
-                return <CharacterCard character={character} />;
+                return (
+                  <CharacterCard key={character.id} character={character} />
+                );
               })}
+              {/*  </div> */}
             </div>
           </div>
         )}

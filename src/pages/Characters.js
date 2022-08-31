@@ -6,7 +6,7 @@ import { GET_CHARACTERS } from "../graphql/getCharacrters";
 import CharacterCard from "../components/characterCard";
 
 const Characters = () => {
-  const { loading, error, data } = useQuery(GET_CHARACTERS);
+  const { loading, data } = useQuery(GET_CHARACTERS);
   const load = loading && <p className="mt-5 pt-4">...loading </p>;
 
   return (
@@ -17,7 +17,7 @@ const Characters = () => {
       <div className="d-flex flex-row flex-wrap px-3">
         {data &&
           data.characters.results.map((character) => {
-            return <CharacterCard character={character} />;
+            return <CharacterCard key={character.id} character={character} />;
           })}
       </div>
     </div>

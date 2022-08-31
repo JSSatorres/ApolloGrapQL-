@@ -1,15 +1,14 @@
 import React from "react";
 
 function CharacterCard({ character }) {
-  console.log("eeeeedsfsdfsdfsdfsdfdsfsd", character);
   return (
-    <section key={character.id} className="col-6 px-2">
+    <section key={character.id} className="col-lg-6 px-2">
       <div className="container py-2">
         <div className="row d-flex ">
           <div className="card">
             <div className="card-body p-4">
               <div className="d-flex text-black col-4">
-                <div className="flex-shrink-0 col-6">
+                <div className="flex-shrink-5 col-8">
                   <img
                     src={character?.image}
                     alt={character?.name}
@@ -18,7 +17,12 @@ function CharacterCard({ character }) {
                   />
                 </div>
                 <div className="flex-grow-1 ms-3 col-8">
-                  <h5 className="mb-1">{character?.name}</h5>
+                  <h5
+                    className="mb-1 inline-block text-nowrap "
+                    style={{ fontSize: "16px" }}
+                  >
+                    {character?.name}
+                  </h5>
                   <div className="d-flex justify-content-start rounded-3 p-2 mb-2">
                     <div>
                       <p className="small text-muted mb-1">Gender</p>

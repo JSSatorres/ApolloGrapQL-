@@ -1,13 +1,12 @@
 import { Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import "./App.css";
-import Home from "./pages/Home";
 import Characters from "./pages/Characters";
 import Episodes from "./pages/Episodes";
 // import EditGift from "./pages/Soo";
 
 function App() {
+  console.log("", process.env.REACT_APP_API);
   return (
     <Routes>
       <Route path="/" element={<Episodes />} />

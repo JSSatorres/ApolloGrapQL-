@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top mb-5">
       <div className="container-fluid border-bottom border-warning">
         <ul className="d-xl-flex navbar-nav me-auto mb-2 mb-lg-0">
           <li className="nav-item">

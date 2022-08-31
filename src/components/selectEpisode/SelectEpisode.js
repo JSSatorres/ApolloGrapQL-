@@ -6,7 +6,7 @@ import { GET_EPISODES } from "../../graphql/getEpisodes";
 
 const SelectEpisode = ({ handleChangeEpisode }) => {
   const [value, setValue] = useState(null);
-  const { loading, error, data } = useQuery(GET_EPISODES);
+  const { loading, data } = useQuery(GET_EPISODES);
 
   const options =
     data &&
@@ -15,16 +15,23 @@ const SelectEpisode = ({ handleChangeEpisode }) => {
     });
 
   const handleValueSelect = (value) => {
+    setValue(value);
     handleChangeEpisode(value.value);
   };
 
   return (
-    <div className="mt-5 PY-5 pt-5">
-      {loading ? (
-        <p className="mt-5 pt-4">...loading </p>
-      ) : (
-        <Select value={value} options={options} onChange={handleValueSelect} />
-      )}
+    <div className="mt-5 py-2 ">
+      <div className="mt-5 py-2 pt-5 ">
+        {loading ? (
+          <p className="mt-5 pt-4">...loading </p>
+        ) : (
+          <Select
+            value={value}
+            options={options}
+            onChange={handleValueSelect}
+          />
+        )}
+      </div>
     </div>
   );
 };
