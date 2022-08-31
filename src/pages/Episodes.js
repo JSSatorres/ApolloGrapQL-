@@ -32,7 +32,7 @@ const Episodes = () => {
       </div>
       <div>
         {oneEpisode === false ? (
-          <h2> Select a epiosde</h2>
+          <h2 className=" mt-3 px-5"> Select a epiosde</h2>
         ) : (
           <div>
             <div className=" mt-3 px-5">
@@ -44,13 +44,11 @@ const Episodes = () => {
             </div>
             <h4 className="mt-5 px-5">Characters in the episode:</h4>
             <div className="d-flex flex-row flex-wrap px-3 ">
-              {/*  <div className="col-sm-"> */}
               {oneEpisode.data.episode.characters.map((character) => {
                 return (
                   <CharacterCard key={character.id} character={character} />
                 );
               })}
-              {/*  </div> */}
             </div>
           </div>
         )}
