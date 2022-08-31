@@ -1,6 +1,6 @@
-import { gql, useLazyQuery } from "@apollo/client";
+import { gql } from "@apollo/client";
 
-export const GET_EPISODE_INFO = gql`
+export const GET_ONE_EPISODE = gql`
   query getEpisodeInfo($episodeId: ID!) {
     episode(id: $episodeId) {
       name
@@ -8,8 +8,12 @@ export const GET_EPISODE_INFO = gql`
       episode
       created
       characters {
-        image
+        id
         name
+        image
+        gender
+        species
+        status
       }
     }
   }

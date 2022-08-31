@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/navbar";
 import { useQuery } from "@apollo/client";
 
-import { GET_CHARACTERS } from "../graphql/rickAndMortyQuery";
+import { GET_CHARACTERS } from "../graphql/getCharacrters";
 import CharacterCard from "../components/characterCard";
 
 const Characters = () => {
@@ -12,7 +12,7 @@ const Characters = () => {
   return (
     <div>
       <Navbar />
-      <h3 className="mt-5 pt-4 ">Character Rick and Morty</h3>
+      <h3 className="mt-5 pt-4 px-4">All Characters Rick and Morty</h3>
       {load}
       <div className="d-flex flex-row flex-wrap px-3">
         {data &&

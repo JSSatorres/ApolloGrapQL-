@@ -1,44 +1,56 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useQuery, useLazyQuery } from "@apollo/client";
 
 import Navbar from "../components/navbar";
-import { GET_EPISODE_INFO } from "../graphql/episodeInfoQuery";
+import { GET_ONE_EPISODE } from "../graphql/getOneEpisode";
 import SelectEpisode from "../components/selectEpisode";
+import CharacterCard from "../components/characterCard";
 
 const Episodes = () => {
-  /* const load = loading && <p className="mt-5 pt-4">...loading </p>; */
-  /* const [getEpisode, result] = useLazyQuery(GET_EPISODE_INFO); */
+  const [oneEpisode, setOneEpisode] = useState(false);
+  const [getEpisode, result] = useLazyQuery(GET_ONE_EPISODE);
 
   const handleChangeEpisode = (episodeID) => {
-    console.log(episodeID);
+    getEpisode({ variables: { episodeId: episodeID } });
   };
+
+  useEffect(() => {
+    if (result.data) {
+      setOneEpisode(result);
+    }
+  }, [result, oneEpisode]);
+
   return (
     <>
       <Navbar />
-      <div>
+      <div className=" mt-5 px-5">
         <SelectEpisode
           className="form-select form-select-xs mb-3 mt-5 pt-5"
           aria-label=".form-select-lg example"
           handleChangeEpisode={handleChangeEpisode}
         />
       </div>
-      {/*  <select
-        class="form-select form-select-xs mb-3 mt-5 pt-5"
-        aria-label=".form-select-lg example"
-      >
-        {load}
-        <option selected>select a episode</option>
-        {data &&
-          data.episodes.results.map((episode, index) => {
-            return (
-              <option value={index} onClick={(e) => handleChangeEpisode(e)}>
-                {" "}
-                {episode.name} - {episode.episode}
-              </option>
-            );
-          })}
-      </select> */}
-      <div className="bg-secondary"> episodes</div>
+      <div className="px-5 py-3">
+        {oneEpisode === false ? (
+          <h2> Select a epiosde</h2>
+        ) : (
+          <div>
+            <div>
+              <h2>
+                title: <span>{oneEpisode.data.episode.name}</span>
+              </h2>
+              <h5>episode: {oneEpisode.data.episode.episode}</h5>
+              <h5>air date: {oneEpisode.data.episode.air_date}</h5>
+            </div>
+            <h4 className="mt-5">Characters in the episode:</h4>
+            <div className="d-flex flex-row flex-wrap px-3">
+              {oneEpisode.data.episode.characters.map((character) => {
+                return <CharacterCard character={character} />;
+              })}
+            </div>
+          </div>
+        )}
+      </div>
     </>
   );
 };
